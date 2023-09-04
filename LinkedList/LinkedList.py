@@ -39,6 +39,24 @@ class LinkedList:
 
         return -1
 
+    def insertsorted(self, element):
+        newNode = _Node(element, None)
+        if self.isempty():
+            self._head = newNode
+        else:
+            p = self._head
+            q = self._head
+            while p and p._element < element:
+                q = p
+                p = p._next
+            if p == self._head:
+                newNode._next = self._head
+                self._head = newNode
+            else:
+                newNode._next = q._next
+                q._next = newNode
+        self._size += 1
+
     def addfirst(self, element):
         newNode = _Node(element, self._head)
         self._head = newNode
@@ -108,35 +126,35 @@ class LinkedList:
         print()
 
 
-L = LinkedList()
-L.addlast(7)
-L.addlast(4)
-L.addlast(12)
-L.display()
-print('Size', len(L))
-L.addlast(8)
-L.addlast(3)
-L.display()
-print('Size', len(L))
-print('Result', L.search(20))
-L.addfirst(30)
-L.display()
-print('Size', len(L))
-L.addlast(78)
-L.display()
-print('Size', len(L))
-L.addany(101, 2)
-L.display()
-print('Size', len(L))
-ele = L.removefirst()
-print('Element Removed:', ele)
-L.display()
-print('Size', len(L))
-ele = L.removelast()
-print('Element Removed:', ele)
-L.display()
-print('Size', len(L))
-ele = L.removeany(6)
-print('Element Removed:', ele)
-L.display()
-print('Size', len(L))
+# L = LinkedList()
+# L.addlast(7)
+# L.addlast(4)
+# L.addlast(12)
+# L.display()
+# print('Size', len(L))
+# L.addlast(8)
+# L.addlast(3)
+# L.display()
+# print('Size', len(L))
+# print('Result', L.search(20))
+# L.addfirst(30)
+# L.display()
+# print('Size', len(L))
+# L.addlast(78)
+# L.display()
+# print('Size', len(L))
+# L.addany(101, 2)
+# L.display()
+# print('Size', len(L))
+# ele = L.removefirst()
+# print('Element Removed:', ele)
+# L.display()
+# print('Size', len(L))
+# ele = L.removelast()
+# print('Element Removed:', ele)
+# L.display()
+# print('Size', len(L))
+# ele = L.removeany(6)
+# print('Element Removed:', ele)
+# L.display()
+# print('Size', len(L))
